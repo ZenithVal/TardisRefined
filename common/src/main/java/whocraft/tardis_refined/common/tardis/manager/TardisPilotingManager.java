@@ -226,12 +226,12 @@ public class TardisPilotingManager extends TickableHandler {
 
             // Removing fuel once every 2.5 seconds
             if (ticksInFlight % (45) == 0) {
-                this.removeFuel(this.getFlightFuelCost() * throttleStage);
+                this.removeFuel(this.getFlightFuelCost() * throttleStage * 4);
             }
 
             if (this.operator.getLevel().getGameTime() % (20) == 0) {
                 if (distanceCovered <= flightDistance) {
-                    distanceCovered += (int) (throttleStage + (0.5 * throttleStage * speedModifier));
+                    distanceCovered += (int) (throttleStage + (10.0 * throttleStage * speedModifier));
 
                     // If this tick was enough to push us over.
                     if (distanceCovered >= flightDistance) {
